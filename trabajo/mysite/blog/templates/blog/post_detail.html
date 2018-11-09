@@ -1,0 +1,28 @@
+{%extends 'blog/base.html'%}
+{% block content %}
+        <div class="post">
+            <div id="Formulario">
+                {% if post.fecha_publicacion %}
+                    <div class="date" >
+                        {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}" >Actualizar Vehiculo  <span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}">Eliminar Vehiculo    <span class="glyphicon glyphicon-remove"></span></a>       
+                        {% endif %}
+                    </div>
+                {% endif %}
+                    </div>
+
+            <h1>{{ post.title }}</h1> 
+            <h4>Información de Vehiculo</h4>
+            <p>Usuario: <label style="color:darkgray">{{ post.author }}</label></p>
+            <p>Marca: <label style="color:darkgray">{{ post.marca }}</label></p>
+            <p>Fecha publicación : <label style="color:darkgray">{{ post.fecha_publicacion }}</label></p>
+            <p>Modelo: <label style="color:darkgray">{{ post.modelo }}</label></p>
+            <p>Año: <label style="color:darkgray">{{ post.anio }}</label></p>
+            <p>Color: <label style="color:darkgray">{{ post.color }}</label></p>
+            <p>Numero de Puertas: <label style="color:darkgray">{{ post.numero_puertas }}</label></p>
+            <p>Precio: <label style="color:darkgray">{{ post.precio }}</label></p>
+            <p>Descripción: <label style="color:darkgray">{{ post.descripcion|linebreaksbr }}</label></p>
+        </div>
+    </div>
+{% endblock %}

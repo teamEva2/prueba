@@ -1,0 +1,16 @@
+{%extends 'blog/base.html'%}
+{% block content %}
+<h1>Lista de Autos Registrados</h1>
+<hr style="border-color:darkgreen; ">
+    {% for post in posts %}
+    <div class="post" id="Formulario">
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.marca }}</a></h1>
+        <div class="date" >
+            <p> Publicado: {{ post.fecha_publicacion }} </p >
+            <p> Color: {{post.color}}</p>
+                <hr style="border-color:darkgreen">
+        </div>
+        
+    </div>
+    {% endfor %}
+{% endblock %}
